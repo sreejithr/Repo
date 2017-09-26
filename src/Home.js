@@ -3,9 +3,12 @@ import {
   View,
   Text,
   StyleSheet,
+  TouchableOpacity,
   FlatList,
 } from 'react-native';
 import { connect } from 'react-redux';
+import { Actions } from 'react-native-router-flux';
+
 import { addRepos } from './actions';
 import RepoListItem from './RepoListItem';
 
@@ -43,6 +46,15 @@ class Repos extends Component {
             data={this.props.repos}
             renderItem={RepoListItem}
           />
+          <TouchableOpacity
+            style={styles.addButton}
+            underlayColor={'gray'}
+            onPress={() => Actions.createRepo()}
+          >
+            <View>
+              <Text style={styles.plusText}>+</Text>
+            </View>
+          </TouchableOpacity>
         </View>
     );
   }
@@ -51,7 +63,24 @@ class Repos extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    position: 'relative',
   },
+  addButton: {
+    position: 'absolute',
+    bottom: 20,
+    right: 20,
+    backgroundColor: 'black',
+    width: 50,
+    height: 50,
+    borderRadius: 25,
+    overflow: 'hidden',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  plusText: {
+    fontSize: 26,
+    color: 'white',
+  }
 })
 
 const mapStateToProps = (state, ownProps) => {

@@ -33,17 +33,17 @@ export default class RepoDetail extends Component {
         <View style={styles.metrics}>
           <View style={styles.metric}>
             <Text style={styles.metricTitle}>Issues</Text>
-            <Text style={styles.metricText}>{item.open_issues_count}</Text>
+            <Text style={styles.metricText}>{item.open_issues_count || 0}</Text>
           </View>
 
           <View style={styles.metric}>
             <Text style={styles.metricTitle}>Forks</Text>
-            <Text style={styles.metricText}>{item.forks_count}</Text>
+            <Text style={styles.metricText}>{item.forks_count || 0}</Text>
           </View>
 
           <View style={styles.metric}>
             <Text style={styles.metricTitle}>Issues</Text>
-            <Text style={styles.metricText}>{item.open_issues_count}</Text>
+            <Text style={styles.metricText}>{item.open_issues_count || 0}</Text>
           </View>
         </View>
     );
